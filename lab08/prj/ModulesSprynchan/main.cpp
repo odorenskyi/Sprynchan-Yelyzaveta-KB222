@@ -65,11 +65,19 @@ int min_wind_speed(const std::vector<double>& windSpeeds) {
     return min_Beaufort;
 }
 
-std::string convert_to_binary(long long int num) {
-    std::stringstream ss;
-    while (num) {
-        ss << num % 2;
-        num /= 2;
+int count_zeros_or_ones(int n) {
+  int bit = (n >> 9) & 1;
+  int count = 0;
+  if (bit == 1) {
+    while (n) {
+      count += (n & 1) ? 0 : 1;
+      n >>= 1;
     }
-    return ss.str();
+  } else {
+    while (n) {
+      count += (n & 1) ? 1 : 0;
+      n >>= 1;
+    }
+  }
+  return count;
 }

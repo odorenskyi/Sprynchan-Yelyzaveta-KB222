@@ -9,6 +9,6 @@ int Beaufort_num(double windSpeed);
 
 int min_wind_speed(const std::vector<double>& windSpeeds);
 
-std::string convert_to_binary(long long int num);
+int count_zeros_or_ones(int n);
 
 #endif // MODULESSPRYNCHAN_H_INCLUDED
