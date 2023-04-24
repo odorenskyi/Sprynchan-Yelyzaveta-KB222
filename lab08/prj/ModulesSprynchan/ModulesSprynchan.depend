@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1682340766 source:c:\git\lab08\prj\modulessprynchan\main.cpp
+	<math.h>
+	<iostream>
+	<vector>
+	<algorithm>
+
