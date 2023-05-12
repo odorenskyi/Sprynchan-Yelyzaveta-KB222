@@ -9,4 +9,10 @@ int Beaufort_scale(double speed);
 
 int count_zeros_or_ones(int n);
 
+bool check_punct(string text);
+
+void append_date(const std::string& filename);
+
+void myFunction();
+
 #endif // MODULESSPRYNCHAN_H_INCLUDED
