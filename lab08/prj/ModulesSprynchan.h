@@ -9,7 +9,7 @@ int Beaufort_scale(double speed);
 
 int count_zeros_or_ones(int n);
 
-bool check_punct(string text);
+bool checkPunctuation(string text);
 
 void append_date(const std::string& filename);
 

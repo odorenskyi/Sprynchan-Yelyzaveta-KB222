@@ -60,7 +60,7 @@ int count_zeros_or_ones(int n) {
   return count;
 }
 
-bool check_punct(string text) {
+bool checkPunctuation(string text) {
     string originalText = "Як парость виноградної лози, плекайте мову.\n"
                           "Пильно й ненастанно політь бурʼян.\n"
                           "Чистіта від сльози вона хай буде.\n"
@@ -98,7 +98,7 @@ void myFunction() {
     double x, y, z;
     int b;
 
-    cout << "Введіть числа x, y, z та натуральне число v:" << endl;
+    cout << "Введіть числа x, y, z та натуральне число b:" << endl;
     cin >> x >> y >> z >> b;
 
     ofstream outFile;
@@ -114,7 +114,7 @@ void myFunction() {
     int binary_b[32];
     int i = 0;
     while (b > 0) {
-        binary_b[i] = v % 2;
+        binary_b[i] = b % 2;
         b /= 2;
         i++;
     }
