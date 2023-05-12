@@ -2,6 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include "ModulesSprynchan.h"
 
 double s_calculation(double x, double y, double z) {
      double S =  z * sin(pow(x, 2) * y) + sqrt(fabs(z - 12 * x)) / pow(y, 3);
@@ -53,4 +58,71 @@ int count_zeros_or_ones(int n) {
     }
   }
   return count;
+}
+
+bool check_punct(string text) {
+    string originalText = "Як парость виноградної лози, плекайте мову.\n"
+                          "Пильно й ненастанно політь бурʼян.\n"
+                          "Чистіта від сльози вона хай буде.\n"
+                          "Вірно і слухняно нехай вона щоразу служить вам,\n"
+                          "Хоч і живе своїм живим життям.";
+
+
+    for (int i = 0; i < text.length(); i++) {
+        if (ispunct(text[i]) || isspace(text[i])) {
+            text.erase(i--, 1);
+        }
+    }
+
+
+    return text == originalText;
+}
+
+void append_date(const std::string& filename) {
+    std::ofstream outfile(filename, std::ios_base::app);
+    if (!outfile) {
+        std::cerr << "Помилка: не вдалося відкрити файл для дозапису!\n";
+        return;
+    }
+
+    std::time_t now = std::time(nullptr);
+    std::tm* now_tm = std::localtime(&now);
+    char date[11];
+    std::strftime(date, sizeof(date), "%d.%m.%Y", now_tm);
+
+    outfile << "\nДата дозапису: " << date << "\n";
+    outfile.close();
+}
+
+void myFunction() {
+    double x, y, z;
+    int b;
+
+    cout << "Введіть числа x, y, z та натуральне число v:" << endl;
+    cin >> x >> y >> z >> b;
+
+    ofstream outFile;
+    outFile.open("output.txt", ios_base::app);
+
+    if (!outFile) {
+        cerr << "Не вдалося відкрити файл output.txt" << endl;
+        return;
+    }
+
+    outFile << "Результати функції s_calculation з аргументами " << x << ", " << y << ", " << z << ": " << s_calculation(x, y, z) << endl;
+
+    int binary_b[32];
+    int i = 0;
+    while (b > 0) {
+        binary_b[i] = v % 2;
+        b /= 2;
+        i++;
+    }
+    outFile << "Число " << b << " у двійковому коді: ";
+    for (int j = i - 1; j >= 0; j--) {
+        outFile << binary_b[j];
+    }
+    outFile << endl;
+
+    outFile.close();
 }
