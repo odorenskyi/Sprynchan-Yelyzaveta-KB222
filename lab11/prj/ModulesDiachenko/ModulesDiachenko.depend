@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1685627861 source:c:\users\gigabyte\desktop\bmtp_labs\kichura-maksym-kn22\lab11\prj\modulesdiachenko\main.cpp
+	<fstream>
+	<iostream>
+	<locale>
+	<sstream>
+	<string>
+	"ModulesDiachenko.h"
+
